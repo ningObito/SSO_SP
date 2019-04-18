@@ -23,6 +23,7 @@ import org.opensaml.messaging.encoder.MessageEncodingException;
 import org.opensaml.saml.common.messaging.context.SAMLEndpointContext;
 import org.opensaml.saml.common.messaging.context.SAMLPeerEntityContext;
 import org.opensaml.saml.common.xml.SAMLConstants;
+import org.opensaml.saml.saml2.binding.decoding.impl.HTTPSOAP11Decoder;
 import org.opensaml.saml.saml2.binding.encoding.impl.HTTPRedirectDeflateEncoder;
 import org.opensaml.saml.saml2.core.AuthnContext;
 import org.opensaml.saml.saml2.core.AuthnContextClassRef;
@@ -98,7 +99,7 @@ public class AccessFilter implements Filter {
 	
 	public void setLastAccessURL(HttpServletRequest request) {
 		log.info("request url:"+request.getRequestURL());
-		request.getSession().setAttribute(SPMetadata.LAST_ACCESS_URL, request.getRequestURL());
+     	request.getSession().setAttribute(SPMetadata.LAST_ACCESS_URL, request.getRequestURL());
 	}
 	
 	public void sendAuthRequestToIdp(HttpServletResponse httpServletResponse) {

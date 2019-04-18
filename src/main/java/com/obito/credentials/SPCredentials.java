@@ -1,30 +1,24 @@
 package com.obito.credentials;
 
+import java.io.InputStream;
+import java.security.KeyStore;
+import java.util.HashMap;
+import java.util.Map;
 
+import org.opensaml.core.criterion.EntityIdCriterion;
+import org.opensaml.security.credential.Credential;
+import org.opensaml.security.credential.impl.KeyStoreCredentialResolver;
 
 import net.shibboleth.utilities.java.support.resolver.CriteriaSet;
 import net.shibboleth.utilities.java.support.resolver.Criterion;
 import net.shibboleth.utilities.java.support.resolver.ResolverException;
-import org.opensaml.core.criterion.EntityIdCriterion;
-import org.opensaml.security.credential.Credential;
-import org.opensaml.security.credential.impl.KeyStoreCredentialResolver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.net.URL;
-import java.security.*;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 
 public class SPCredentials {
-    private static final String KEY_STORE_PASSWORD = "password";
-    private static final String KEY_STORE_ENTRY_PASSWORD = "password";
-    private static final String KEY_STORE_PATH = "/SPKeystore.jks";
-    private static final String KEY_ENTRY_ID = "SPKey";
+    private static final String KEY_STORE_PASSWORD = "123456";
+    private static final String KEY_STORE_ENTRY_PASSWORD = "123456";
+    private static final String KEY_STORE_PATH = "/sp.keystore";
+    private static final String KEY_ENTRY_ID = "sp";
 
     private static final Credential credential;
 

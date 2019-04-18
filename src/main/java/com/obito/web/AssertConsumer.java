@@ -190,10 +190,10 @@ public class AssertConsumer extends HttpServlet {
     }
 
     private void redirectToGotoURL(HttpServletRequest req, HttpServletResponse resp) {
-        String gotoURL = (String)req.getSession().getAttribute(SPMetadata.LAST_ACCESS_URL);
+        StringBuffer gotoURL = (StringBuffer) req.getSession().getAttribute(SPMetadata.LAST_ACCESS_URL);
         logger.info("Redirecting to requested URL: " + gotoURL);
         try {
-            resp.sendRedirect(gotoURL);
+            resp.sendRedirect(gotoURL.toString());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
